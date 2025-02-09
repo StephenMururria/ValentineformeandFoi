@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +18,8 @@
             margin-bottom: 20px;
         }
         p {
-            font-size: 1.5em;margin-bottom: 40px;
+            font-size: 1.5em;
+            margin-bottom: 40px;
         }
         .heart {
             font-size: 5em;
@@ -32,7 +31,7 @@
             font-size: 1.2em;
             padding: 15px 30px;
             border: none;
-            border-radius: 10px;
+border-radius: 10px;
             cursor: pointer;
             transition: 0.3s;
             margin: 10px;
@@ -54,30 +53,40 @@
 <body>
 
     <h1>Will you be my Valentine?</h1>
-    <p>I've been thinking about how lucky I am to have you in my life...</p>
+    <p>I know you are busy with exams ...</p>
     <div class="heart">❤️</div>
 
-    <!-- Add your photo here -->
-    <img src="images/our-photo.jpg" alt="Us together">
+    <!-- Add image shown during the question -->
+    <img src="images/your-question-image.jpg" alt="Asking you to be my Valentine" id="question-image">
 
-    <p>So, here's a little website to ask you the most important question...</p>
+    <p>And I know I took long to ask and you've been expecting this question...</p>
 
     <button class="button" onclick="valentineAnswer('yes')">Yes, I will!</button>
     <button class="button" onclick="valentineAnswer('no')">No, I won't!</button>
 
-    <!-- Broken Heart Image (hidden initially) --><img id="broken-heart" src="images/broken-heart.jpg" alt="Broken Heart" class="hidden">
+    <!-- Images for response -->
+    <img id="yes-response" src="images/our-photo.jpg" alt="Us together" class="hidden">
+    <img id="no-response" src="images/broken-heart.jpg" alt="Broken Heart" class="hidden">
 
     <script>
         function valentineAnswer(answer) {
+            // Hide the question image
+document.getElementById('question-image').classList.add('hidden');
+
             if (answer === 'yes') {
+                // Show the image of you two together
+                document.getElementById("yes-response").classList.remove("hidden");
                 alert('Yay! I am so happy you said YES! ❤️');
             } else if (answer === 'no') {
-                const sureAnswer = confirm("UKO SURE ANSWER NI NO?🥲(Press ok to Continue with NO, Cancel to STOP)");
+                // Show the Broken Heart image
+                document.getElementById("no-response").classList.remove("hidden");
+                
+                // Ask if they are sure
+                const sureAnswer = confirm("Are you sure your answer is NO?🥲 (Press ok to continue with NO, Cancel to STOP)");
                 if (sureAnswer === false) {
                     alert("GOTCHA!!! YOU ALREADY ARE MY VALENTINE BAE ❤️");
                 } else {
-                    document.getElementById("broken-heart").classList.remove("hidden");
-                    alert("NKT!HEBU ANZA AFRESH NA UFINYE YES😂");
+                    alert("NKT! HEBU RUDI NYUMA NA UFINYE YES 😂");
                 }
             }
         }
@@ -85,6 +94,5 @@
 
 </body>
 </html>
-
 
 
